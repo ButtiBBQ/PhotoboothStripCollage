@@ -14,7 +14,6 @@ height="$(identify -format '%h' $PICTURE)"
 
 TMP_COLLAGE="/var/www/html/private/tmp_collage.jpg"
 TMP_COLLAGEPRINT="/var/www/html/private/tmp_collageprint.jpg"
-TMP_PHOTO="/var/www/html/private/tmp_photo.jpg"
 
 # variables for additional white pixel that we will add to the photo for better results when cutting.
 H2="/var/www/html/private/horizontal2mm.jpg"
@@ -26,6 +25,7 @@ H3="/var/www/html/private/horizontal3mm.jpg"
 
 # Check if width is smaller than height (Collage)
 if [[  $height -eq 584  ]]; then
+    # Photostripe
     
     # => uncomment next line for debug
     #echo “Collage“ >>/var/www/html/private/print.log
@@ -36,7 +36,7 @@ if [[  $height -eq 584  ]]; then
     convert $V2 $V2 $TMP_COLLAGE +append $TMP_COLLAGEPRINT
 
     # print 
-    lp -d "Printi" -o media=w288h432-div2 -o landscape -o fit-to-page $TMP_COLLAGEPRINT
+    lp -d $PRINTER_NAME -o media=w288h432-div2 -o landscape -o fit-to-page $TMP_COLLAGEPRINT
     
     # => uncomment next line for debug
     # echo "$TMP_COLLAGE" >> /var/www/html/private/print.log
@@ -47,7 +47,7 @@ else
     # => uncomment next line for debug
     # echo “Photo height: $height width: $width“ >>/var/www/html/private/print.log
     
-    lp -d $PRINTER_NAME -o orientation-requested=3 -o fit-to-page $TMP_PHOTO
+    lp -d $PRINTER_NAME -o orientation-requested=3 -o fit-to-page $PICTURE
 
     # => uncomment next line for debug
     # echo "printed " >>/var/www/html/private/print.log
