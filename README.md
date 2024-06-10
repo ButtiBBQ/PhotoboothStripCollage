@@ -13,6 +13,7 @@ Collage for foto strips to cut and print with DI-RX1
 4. install imagemagick by running command: sudo apt install imagemagick -y
 5. in AdminPanel ( http://fotobox/admin/#commands ) set the command to print to: /var/www/html/private/print.sh %s
 6. in AdminPanel set the collage resolution to 300DPI
-7. done :)
+7. set Choose collage layout to private/collage.json
+8. done :)
 
 <img src="https://github.com/ButtiBBQ/PhotoboothStripCollage/blob/main/sample.jpg" alt="sample image" width="200"/> 
