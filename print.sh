@@ -32,8 +32,8 @@ if [[  $height -eq 584  ]]; then
     
     # Collage
     # stack image horizontal with +append vertical with -append
-    convert $H3 $PICTURE $PICTURE $H2 -append $TMP_COLLAGE
-    convert $V2 $V2 $TMP_COLLAGE +append $TMP_COLLAGEPRINT
+    convert $H3 $H3 $PICTURE $PICTURE $H2 $H2 -append $TMP_COLLAGE
+    convert $V2 $V2 $V2 $TMP_COLLAGE $V2 +append $TMP_COLLAGEPRINT
 
     # print 
     lp -d $PRINTER_NAME -o media=w288h432-div2 -o landscape -o fit-to-page $TMP_COLLAGEPRINT
